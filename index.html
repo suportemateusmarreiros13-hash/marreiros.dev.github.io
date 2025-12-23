@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Profissional - Desenvolvimento e Cibersegurança</title>
+    <style>
+        /* Reset e configurações base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #0a0a0a;
+        }
+
+        /* Container geral */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #999;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: #bbb;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            background-color: #222;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #333;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2a2a2a;
+            border-color: #444;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+        }
+
+        /* Navegação fixa */
+        .main-nav {
+            background-color: #111;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .main-nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .main-nav a:hover {
+            color: #fff;
+        }
+
+        /* Seções */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-alt {
+            background-color: #0d0d0d;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #222;
+        }
+
+        /* Perfil Técnico */
+        .profile-content p {
+            margin-bottom: 1.3rem;
+            color: #bbb;
+            line-height: 1.8;
+        }
+
+        /* Grid de Competências */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: #151515;
+            padding: 1.8rem;
+            border-left: 3px solid #333;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-left-color: #555;
+            background-color: #1a1a1a;
+        }
+
+        .skill-card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            color: #aaa;
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+        }
+
+        .skill-card li:before {
+            content: "▸ ";
+            color: #666;
+            margin-right: 0.5rem;
+        }
+
+        /* Certificações */
+        .cert-section {
+            margin-bottom: 3rem;
+        }
+
+        .cert-section h3 {
+            color: #ddd;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .cert-item {
+            background-color: #151515;
+            padding: 1.5rem;
+            border-left: 3px solid #333;
+            transition: all 0.3s;
+        }
+
+        .cert-item:hover {
+            border-left-color: #555;
+            background-color: #1a1a1a;
+        }
+
+        .cert-item h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .cert-item p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Formação */
+        .education-item {
+            background-color: #151515;
+            padding: 2rem;
+            border-left: 3px solid #333;
+        }
+
+        .education-item h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* Projetos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: #151515;
+            padding: 1.8rem;
+            border: 1px solid #222;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #333;
+            background-color: #1a1a1a;
+        }
+
+        .project-card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-tags span {
+            background-color: #0a0a0a;
+            color: #888;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            border: 1px solid #222;
+        }
+
+        .project-note {
+            color: #666;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Metodologia */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .method-item {
+            background-color: #151515;
+            padding: 1.5rem;
+            border-left: 3px solid #333;
+            transition: all 0.3s;
+        }
+
+        .method-item:hover {
+            border-left-color: #555;
+            background-color: #1a1a1a;
+        }
+
+        .method-item h3 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .method-item p {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Idiomas */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .language-item {
+            background-color: #151515;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #222;
+            transition: all 0.3s;
+        }
+
+        .language-item:hover {
+            border-color: #333;
+            background-color: #1a1a1a;
+        }
+
+        .language-item h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-item p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Contato */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 900px;
+        }
+
+        .contact-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            background-color: #151515;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #555;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .contact-info h3 {
+            color: #ddd;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            background-color: #151515;
+            color: #aaa;
+            text-decoration: none;
+            padding: 1rem;
+            border: 1px solid #222;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .contact-link:hover {
+            background-color: #1a1a1a;
+            border-color: #333;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            border-top: 1px solid #222;
+            padding: 2rem 5%;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-nav ul {
+                gap: 1rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .methodology-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1> Mateus marreiros</h1>
+            <p class="hero-subtitle">Desenvolvimento de Sistemas | Programação | Cibersegurança</p>
+            <p class="hero-description">Formação sólida em redes, segurança, hardware e inteligência artificial aplicada.</p>
+            <div class="hero-buttons">
+                <a href="#certificacoes" class="btn">Ver Certificações</a>
+                <a href="#projetos" class="btn btn-secondary">Ver Projetos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegação fixa -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <ul>
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#competencias">Competências</a></li>
+                <li><a href="#certificacoes">Certificações</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#metodologia">Metodologia</a></li>
+                <li><a href="#idiomas">Idiomas de atuação</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Perfil Técnico -->
+        <section id="perfil" class="section">
+            <div class="container">
+                <h2>Perfil Técnico</h2>
+                <div class="profile-content">
+                    <p>Formação técnica estruturada em desenvolvimento de sistemas com ênfase em segurança digital, infraestrutura de redes e arquitetura de hardware. Experiência prática adquirida através de laboratórios acadêmicos, projetos de implementação e certificações técnicas em ambientes controlados.</p>
+                    
+                    <p>Base consolidada em análise de vulnerabilidades, conceitos de defesa em profundidade e modelagem de ameaças cibernéticas. Conhecimento aplicado de protocolos de rede, topologias e configuração de ambientes seguros. Capacidade demonstrada em documentação técnica, troubleshooting sistemático e aplicação de frameworks de segurança.</p>
+                    
+                    <p>Familiaridade com conceitos de inteligência artificial aplicada a contextos empresariais, incluindo análise de viabilidade, implementação de soluções baseadas em cloud e avaliação de impacto tecnológico em processos de negócio. Experiência com plataformas Azure e compreensão de arquiteturas serverless.</p>
+                    
+                    <p>Abordagem metodológica focada em boas práticas de desenvolvimento, versionamento de código, automação de tarefas repetitivas e manutenção de ambientes de teste. Aprendizado contínuo de novas tecnologias através de documentação oficial, cursos estruturados e implementação prática de conceitos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competências Técnicas -->
+        <section id="competencias" class="section section-alt">
+            <div class="container">
+                <h2>Competências Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Programação & Desenvolvimento</h3>
+                        <ul>
+                            <li>Lógica de programação e algoritmos</li>
+                            <li>Estruturação e arquitetura de sistemas</li>
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>Conceitos de backend e APIs</li>
+                            <li>Versionamento com Git</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Redes & Segurança</h3>
+                        <ul>
+                            <li>Fundamentos de redes TCP/IP</li>
+                            <li>Análise de cibersegurança</li>
+                            <li>Identificação e mitigação de riscos</li>
+                            <li>Segurança da informação</li>
+                            <li>Conformidade e boas práticas</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Infraestrutura & Hardware</h3>
+                        <ul>
+                            <li>Arquitetura de computadores</li>
+                            <li>Componentes e periféricos</li>
+                            <li>Manutenção preventiva e corretiva</li>
+                            <li>Ambientes virtualizados</li>
+                            <li>Diagnóstico de falhas</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-card">
+                        <h3>Inteligência Artificial & Cloud</h3>
+                        <ul>
+                            <li>Fundamentos de IA e machine learning</li>
+                            <li>IA aplicada a processos empresariais</li>
+                            <li>Serviços cognitivos Azure</li>
+                            <li>Análise de viabilidade tecnológica</li>
+                            <li>Sustentabilidade em TI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificações -->
+        <section id="certificacoes" class="section">
+            <div class="container">
+                <h2>Certificações</h2>
+                
+                <div class="cert-section">
+                    <h3>Cisco Networking Academy</h3>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <h4>Analista de Cibersegurança</h4>
+                            <p>Fundamentos de segurança da informação, identificação de ameaças digitais, técnicas de mitigação e resposta a incidentes. Análise de vulnerabilidades, conceitos de defesa em profundidade e aplicação de frameworks de segurança.</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Greenhouse Gas Accounting for IT</h4>
+                            <p>Contabilização de emissões de gases de efeito estufa em infraestruturas de TI. Sustentabilidade tecnológica, impacto ambiental de data centers e práticas de TI verde aplicadas a ambientes corporativos.</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Fundamentos do Hardware de Computador</h4>
+                            <p>Arquitetura de sistemas computacionais, componentes de hardware, montagem e manutenção de equipamentos. Diagnóstico de falhas, compatibilidade de componentes e otimização de desempenho.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-section">
+                    <h3>Fundação Bradesco</h3>
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            <h4>Fundamentos de Inteligência Artificial no Azure</h4>
+                            <p>Conceitos de inteligência artificial, machine learning e serviços cognitivos na plataforma Azure. Implementação de soluções baseadas em cloud, APIs de IA e integração com sistemas existentes.</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Inteligência Artificial para Pequenas e Médias Empresas</h4>
+                            <p>Aplicação estratégica de IA em contextos empresariais de menor escala. Análise de viabilidade, ROI tecnológico, automação de processos e implementação gradual de soluções inteligentes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formação -->
+        <section id="formacao" class="section section-alt">
+            <div class="container">
+                <h2>Formação Acadêmica</h2>
+                <div class="education-item">
+                    <h3>Curso Técnico em Desenvolvimento de Sistemas</h3>
+                    <p class="institution">SEDUC</p>
+                    <p class="description">Formação técnica com ênfase em lógica de programação, análise de sistemas, desenvolvimento de aplicações e gestão de projetos de software. Abordagem prática incluindo modelagem de dados, arquitetura de sistemas, testes e documentação técnica.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projetos" class="section">
+            <div class="container">
+                <h2>Projetos Acadêmicos e Práticos</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Site Institucional Responsivo</h3>
+                        <p>Desenvolvimento de interface web responsiva com HTML5, CSS3 e JavaScript. Implementação de navegação fluida, otimização de performance e compatibilidade cross-browser.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <p class="project-note">Projeto acadêmico</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Sistema de Gerenciamento</h3>
+                        <p>Projeto conceitual de sistema CRUD com modelagem de banco de dados, fluxogramas de processos e documentação de requisitos funcionais e não-funcionais.</p>
+                        <div class="project-tags">
+                            <span>Análise de Sistemas</span>
+                            <span>Modelagem</span>
+                            <span>Documentação</span>
+                        </div>
+                        <p class="project-note">Projeto acadêmico</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Simulação de Rede Segura</h3>
+                        <p>Configuração de ambiente de rede em laboratório com implementação de políticas de segurança, segmentação de rede e análise de tráfego para identificação de anomalias.</p>
+                        <div class="project-tags">
+                            <span>Redes</span>
+                            <span>Segurança</span>
+                            <span>Cisco</span>
+                        </div>
+                        <p class="project-note">Laboratório prático</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Análise de Vulnerabilidades</h3>
+                        <p>Estudo de caso sobre identificação de vulnerabilidades em sistemas web. Aplicação de metodologias de pentest, documentação de falhas e propostas de mitigação baseadas em OWASP.</p>
+                        <div class="project-tags">
+                            <span>Cibersegurança</span>
+                            <span>OWASP</span>
+                            <span>Análise</span>
+                        </div>
+                        <p class="project-note">Projeto de certificação</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodologia -->
+        <section id="metodologia" class="section section-alt">
+            <div class="container">
+                <h2>Metodologia de Trabalho</h2>
+                <div class="methodology-grid">
+                    <div class="method-item">
+                        <h3>Organização</h3>
+                        <p>Estruturação de código em módulos, uso de convenções de nomenclatura e organização hierárquica de arquivos. Gestão de tarefas através de listas priorizadas e controle de versões.</p>
+                    </div>
+                    <div class="method-item">
+                        <h3>Documentação</h3>
+                        <p>Criação de documentação técnica clara, incluindo comentários em código, README detalhados e diagramas de fluxo. Registro de decisões técnicas e justificativas de implementação.</p>
+                    </div>
+                    <div class="method-item">
+                        <h3>Aprendizado Contínuo</h3>
+                        <p>Estudo através de documentação oficial, cursos estruturados e implementação prática. Atualização constante sobre tendências tecnológicas e melhores práticas da indústria.</p>
+                    </div>
+                    <div class="method-item">
+                        <h3>Resolução de Problemas</h3>
+                        <p>Abordagem sistemática para troubleshooting: reprodução do erro, isolamento de variáveis, análise de logs e implementação de soluções testadas. Validação através de testes unitários e funcionais.</p>
+                    </div>
+                    <div class="method-item">
+                        <h3>Responsabilidade Técnica</h3>
+                        <p>Atenção a detalhes de segurança, validação de inputs, tratamento de exceções e consideração de casos extremos. Compromisso com código limpo e manutenível.</p>
+                    </div>
+                    <div class="method-item">
+                        <h3>Colaboração</h3>
+                        <p>Comunicação técnica clara, compartilhamento de conhecimento e abertura para feedback. Uso de ferramentas colaborativas e versionamento para trabalho em equipe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Idiomas -->
+        <section id="idiomas" class="section">
+            <div class="container">
+                <h2>Idiomas de atuação</h2>
+                <div class="languages-grid">
+                    <div class="language-item">
+                        <h3>Espanhol</h3>
+                        <p>Certificado</p>
+                    </div>
+                    <div class="language-item">
+                        <h3>Italiano</h3>
+                        <p>Certificado</p>
+                    </div>
+                    <div class="language-item">
+                        <h3>Alemão</h3>
+                        <p>Certificado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="section section-alt">
+            <div class="container">
+                <h2>Contato</h2>
+                <div class="contact-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="6" placeholder="Sua mensagem..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+
+                    <div class="contact-info">
+                        <h3>contato suporte</h3>
+                        <div class="social-links">
+                            <div class="contact-link">
+                                <strong>E-mail:</strong> suportemateusmarreiros13@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Portfólio Profissional - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para navegação interna
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Destaque na navegação durante scroll
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.main-nav a');
+
+        function highlightNavigation() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '#aaa';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = '#fff';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavigation);
+
+        // Manipulação do formulário de contato
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            // Exibe mensagem de confirmação
+            alert('Mensagem registrada:\n\nE-mail: ' + email + '\n\nNota: Este é um formulário estático. Para implementação funcional, você precisará conectá-lo a um serviço backend ou API de e-mail.');
+            
+            // Limpa formulário
+            this.reset();
+        });
+
+        // Animação de entrada suave para elementos ao scroll
